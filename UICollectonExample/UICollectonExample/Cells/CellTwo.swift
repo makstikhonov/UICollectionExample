@@ -21,7 +21,6 @@ class CellTwo: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewD
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
-        //backgroundColor = .systemMint
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -76,7 +75,7 @@ class CellTwo: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewD
         }
         
         required init?(coder aDecoder: NSCoder) {
-            fatalError("")
+            fatalError("init(coder:) has not been implemented")
         }
         
         func setup() {

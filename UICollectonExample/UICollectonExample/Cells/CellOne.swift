@@ -14,7 +14,6 @@ class CellOne: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewD
         layout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        //cv.backgroundColor = .systemRed
         
         return collectionView
     }()
@@ -27,7 +26,7 @@ class CellOne: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewD
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("")
+        fatalError("init(coder:) has not been implemented")
     }
     
     func setup() {
@@ -78,7 +77,7 @@ class CellOne: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewD
         }
         
         required init?(coder aDecoder: NSCoder) {
-            fatalError("")
+            fatalError("init(coder:) has not been implemented")
         }
         
         func setup() {
