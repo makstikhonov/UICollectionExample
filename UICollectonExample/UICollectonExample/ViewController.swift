@@ -33,6 +33,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         collectionView.register(CellOne.self, forCellWithReuseIdentifier: "albumCellOne")
         collectionView.register(CellTwo.self, forCellWithReuseIdentifier: "albumCellTwo")
+        collectionView.register(CellThree.self, forCellWithReuseIdentifier: "albumCellThree")
         
         view.addSubview(collectionView)
         collectionView.edgeTo(view)
@@ -52,26 +53,43 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
+        
+        switch indexPath.section {
+        case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCellOne", for: indexPath) as! CellOne
             return cell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCellTwo", for: indexPath) as! CellTwo
+            return cell
+        default:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCellThree", for: indexPath) as! CellThree
+            return cell
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCellTwo", for: indexPath) as! CellTwo
-        return cell
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.section == 2 {
+        
+        switch indexPath.section {
+        case 1:
+            return CGSize(width: view.frame.width, height: 160)
+        case 2:
             return CGSize(width: view.frame.width, height: 40)
+        default:
+            return CGSize(width: view.frame.width, height: 300)
         }
-        return CGSize(width: view.frame.width, height: 300)
+        
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if section == 2 {
+        
+        switch section {
+        case 2:
             return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        default:
+            return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         }
-        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+
     }
 }
